@@ -26,7 +26,7 @@ def get_repoman
     select{|d| File.directory?(d) }.
     reject{|d| d =~ /\/(zabbix_integration|zabbix|users)$/ }.
     sort_by{|d| File.basename(d) }.reverse
-  clxn = ClusterChef::Repoman::Collection.new(
+  clxn = Ironfan::Repoman::Collection.new(
     cookbooks,
     :vendor      => 'infochimps',
     :main_dir    => HOMEBASE_MAIN_DIR,
@@ -47,7 +47,7 @@ end
 #     thrift ubuntu ucspi-tcp ufw xfs xml yum zlib zsh
 #  ].reverse
 #   # cookbooks = cookbooks[-6..-1]
-#   clxn = ClusterChef::Repoman::Collection.new(
+#   clxn = Ironfan::Repoman::Collection.new(
 #     cookbooks,
 #     :vendor   => 'opscode',
 #     :main_dir  => File.expand_path('vendor/opscode', HOMEBASE_MAIN_DIR),
@@ -59,11 +59,11 @@ end
 # end
 
 # def get_repoman
-#   ClusterChef::Repoman::Collection.new(['zabbix'],  :vendor => 'laradji', :main_dir => nil, :github_org  => GITHUB_ORG, :github_team => GITHUB_TEAM )
+#   Ironfan::Repoman::Collection.new(['zabbix'],  :vendor => 'laradji', :main_dir => nil, :github_org  => GITHUB_ORG, :github_team => GITHUB_TEAM )
 # end
 
 # def get_repoman
-#   ClusterChef::Repoman::Collection.new(['rvm'],     :vendor => 'fnichol', :main_dir => nil, :github_org  => GITHUB_ORG, :github_team => GITHUB_TEAM )
+#   Ironfan::Repoman::Collection.new(['rvm'],     :vendor => 'fnichol', :main_dir => nil, :github_org  => GITHUB_ORG, :github_team => GITHUB_TEAM )
 # end
 
 if ENV['DO_REPOMAN']

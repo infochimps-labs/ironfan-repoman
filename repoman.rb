@@ -10,7 +10,7 @@ require 'gorillib/hash/reverse_merge'
 require 'gorillib/object/blank'
 require 'gorillib/hash/compact'
 require 'set'
-require 'cluster_chef/dsl_object'
+require 'ironfan/dsl_object'
 require 'rest-client'
 require 'grit'
 
@@ -20,10 +20,10 @@ require 'repoman/github'
 # Log.level = :info
 # Log.level = :debug ; RestClient.log = Log
 
-module ClusterChef
+module Ironfan
   module Repoman
 
-    class Collection < ClusterChef::DslObject
+    class Collection < Ironfan::DslObject
       include ::Rake::Cloneable
       include ::Rake::DSL
       attr_reader :repos
@@ -39,7 +39,7 @@ module ClusterChef
         defaults
         @repos = Mash.new
         paths.each do |path|
-          repo = ClusterChef::Repoman::Repo.new(self, path, hsh)
+          repo = Ironfan::Repoman::Repo.new(self, path, hsh)
           @repos[repo.name] = repo
         end
       end
@@ -83,11 +83,11 @@ module ClusterChef
     end
 
 
-    class Repo < ClusterChef::DslObject
+    class Repo < Ironfan::DslObject
       include ::Rake::Cloneable
       include ::Rake::DSL
 
-      include ClusterChef::Repoman::GithubRepo
+      include Ironfan::Repoman::GithubRepo
 
       attr_reader :collection  # collection this belongs to
       attr_reader :path        # path within main repo

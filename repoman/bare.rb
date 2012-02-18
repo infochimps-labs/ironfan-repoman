@@ -1,6 +1,6 @@
-module ClusterChef
+module Ironfan
   module Repoman
-    class Repo < ClusterChef::DslObject
+    class Repo < Ironfan::DslObject
 
       #
       # Bare Repo

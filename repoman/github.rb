@@ -1,4 +1,4 @@
-module ClusterChef
+module Ironfan
   module Repoman
     module GithubRepo
 
@@ -48,7 +48,7 @@ module ClusterChef
         github_api_post("repos/show/#{github_repo_name}",
           :name   => github_repo_name,
           :values => {
-            :homepage => "http://github.com/infochimps-labs/cluster_chef-homebase",
+            :homepage => "http://github.com/infochimps-labs/ironfan-homebase",
             :has_wiki   => "0",
             :has_issues => "0",
             :has_downloads => "1",
