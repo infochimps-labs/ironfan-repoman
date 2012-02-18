@@ -1,7 +1,47 @@
+# Ironfan-Repoman: Repossess your cookbook versions
+
+The ironfan project is an expressive toolset for constructing scalable, resilient architectures. It works in the cloud, in the data center, and on your laptop, and makes your system diagram visible and inevitable.
+
+This repo lets you maintain single-cookbook repos from a repo that has all your cookbooks.
+
+Single cookbooks repos are good because:
+
+* they can be pinned to cookbook version numbers
+* outside users can pick and choose only specific cookbooks 
+
+Unified pantries of cookbooks are good because:
+
+* developers can make atomic commits, even if they touch multiple cookbooks or a cookbook and its roles
+* `git submodule`s suck balls
+* the relative timeline of versions across cookbooks is clear
+* one repo is simpler than 50 repos
+
+ironfan-repoman lets you work with a unified pantry, but distribute batched updates to granular repos.
+
+To get started with ironfan, clone the [homebase repo](https://github.com/infochimps-labs/ironfan-homebase) and follow the [installation instructions](https://github.com/infochimps-labs/ironfan/wiki/install). Please file all issues on [ironfan issues](https://github.com/infochimps-labs/ironfan/issues).
+
+## Index
+
+Ironfan-Repoman works together with the full ironfan toolset:
+
+* [ironfan-homebase](https://github.com/infochimps-labs/ironfan-homebase): centralizes the cookbooks, roles and clusters. A solid foundation for any chef user.
+* [ironfan gem](https://github.com/infochimps-labs/ironfan): core ironfan models, and knife plugins to orchestrate machines and coordinate truth among you homebase, cloud and chef server.
+* [ironfan-pantry](https://github.com/infochimps-labs/ironfan-pantry): Our collection of industrial-strength, cloud-ready recipes for Hadoop, HBase, Cassandra, Elasticsearch, Zabbix and more.
+* [silverware cookbook](https://github.com/infochimps-labs/ironfan-homebase/tree/master/cookbooks/silverware): coordinate discovery of services ("list all the machines for `awesome_webapp`, that I might load balance them") and aspects ("list all components that write logs, that I might logrotate them, or that I might monitor the free space on their volumes".
+* [ironfan-ci](https://github.com/infochimps-labs/ironfan-ci): Continuous integration testing of not just your cookbooks but your *architecture*.
+
+* [ironfan wiki](https://github.com/infochimps-labs/ironfan/wiki): high-level documentation and install instructions
+* [ironfan issues](https://github.com/infochimps-labs/ironfan/issues): bugs, questions and feature requests for *any* part of the ironfan toolset.
+* [ironfan gem docs](http://rdoc.info/gems/ironfan): rdoc docs for ironfan
+
+__________________________________________________________________________
+
+
+
 We store and track our cookbooks in two separate repo sets([*](#foot_1)):
 
 * In the [infochimps-cookbooks](http://github.com/infochimps-cookbooks) collection, each in its own repo
-* In [cluster_chef-homebase](http://github.com/infochimps-labs/cluster_chef-homebase), each in its own a subdirectory
+* In [ironfan-homebase](http://github.com/infochimps-labs/ironfan-homebase), each in its own a subdirectory
 
 We've found a way to pull this off well, but ungracefully. Well, thanks to the magic of [git-subtree](https://github.com/apenwarr/git-subtree); ungracefully, due to git-subtree's limitations. Repoman is a set of rake tasks that protect you from those limitations.
 
@@ -30,7 +70,7 @@ See below for
 
 ### Unified repos for some, miniature american flags for others ###
 
-Individual cookbook repos make our sysadmins happy: fine-grained version control lets us selectively gate changes into production. As importantly, cluster_chef community members can easily adopt only selected cookbooks, and we can easily evaluate and accept pull requests.
+Individual cookbook repos make our sysadmins happy: fine-grained version control lets us selectively gate changes into production. As importantly, ironfan community members can easily adopt only selected cookbooks, and we can easily evaluate and accept pull requests.
 
 A unified, combined repo makes our developers happy: they have a familiar home to work from, a git repo like every other git repo. After making a common change across multiple cookbooks, they issue a single commit -- one message, one atomic changeset, one diff. There's only one main body of code to push or pull, so there's no danger our working sets diverge or of forgetting to push.
 
@@ -67,7 +107,7 @@ What's great about git-subtree's magic is that it is *not* magic. It's a shell s
 We want to coordinate the following:
 
 * github   - remote repos, one for each cookbook (eg https://github.com/infochimps-cookbooks/redis)
-* homebase - a homebase with each cookbook in its own subdirectory (eg vendor/infochimps/redis; presumably the homebase is a clone of [cluster_chef-homebase](http://github.com/infochimps-labs/cluster_chef-homebase) or [opscode's homebase](http://github.com/opscode/chef-repo))
+* homebase - a homebase with each cookbook in its own subdirectory (eg vendor/infochimps/redis; presumably the homebase is a clone of [ironfan-homebase](http://github.com/infochimps-labs/ironfan-homebase) or [opscode's homebase](http://github.com/opscode/chef-repo))
 
 Nothing that follows prevents you from `git subtree push`/`pull`ing directly to and from the remote. But if you're like most of us -- who understand only push, pull, merge, and `--help` -- these scripts ensure that when git catches on fire it only does so in a safe familiar place. What we do is also set up
 
@@ -124,7 +164,7 @@ However, we find it most productive to make changes in the unified tree and synd
 
 ## Advanced: How git-subtree works ##
 
-_(To follow along, clone [cluster_chef-homebase](http://github.com/infochimps-labs/cluster_chef-homebase) and rename it 'homebase'; also create a neighboring directory called 'repoman' and clone  [infochimps-cookbooks's redis repo](http://github.com/infochimps-cookbooks/redis) into a directory `repoman/redis`.)_
+_(To follow along, clone [ironfan-homebase](http://github.com/infochimps-labs/ironfan-homebase) and rename it 'homebase'; also create a neighboring directory called 'repoman' and clone  [infochimps-cookbooks's redis repo](http://github.com/infochimps-cookbooks/redis) into a directory `repoman/redis`.)_
 
 Here is the principal component of the Git Tao ([*](#foot_2)):
 
