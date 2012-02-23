@@ -13,7 +13,7 @@ Single cookbooks repos are good because:
 Unified pantries of cookbooks are good because:
 
 * developers can make atomic commits, even if they touch multiple cookbooks or a cookbook and its roles
-* `git submodule`s suck balls
+* `git submodule`s are a pain to work with
 * the relative timeline of versions across cookbooks is clear
 * one repo is simpler than 50 repos
 
