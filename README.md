@@ -19,16 +19,18 @@ Unified pantries of cookbooks are good because:
 
 ironfan-repoman lets you work with a unified pantry, but distribute batched updates to granular repos.
 
-To get started with ironfan, clone the [homebase repo](https://github.com/infochimps-labs/ironfan-homebase) and follow the [installation instructions](https://github.com/infochimps-labs/ironfan/wiki/install). Please file all issues on [ironfan issues](https://github.com/infochimps-labs/ironfan/issues).
+## Getting Started
+
+To jump right into using Ironfan, follow our [Installation Instructions](https://github.com/infochimps-labs/ironfan/wiki/INSTALL). For an explanatory tour, check out our [Hadoop Walkthrough](https://github.com/infochimps-labs/ironfan/wiki/INSTALL).  Please file all issues on [Ironfan Issues](https://github.com/infochimps-labs/ironfan/issues).
 
 
 ## Index
 
-ironfan-repoman works together with the full ironfan toolset:
+ironfan-repoman works together with the full Ironfan toolset:
 
 ###Core Tools:
 
-* [ironfan-homebase](https://github.com/infochimps-labs/ironfan-homebase): Centralizes the cookbooks, roles and clusters. A solid foundation for any chef user.
+* [ironfan-homebase](https://github.com/infochimps-labs/ironfan-homebase): Centralizes the cookbooks, roles and clusters. A solid foundation for any Chef user.
 * [ironfan gem](https://github.com/infochimps-labs/ironfan): The core Ironfan models, and Knife plugins to orchestrate machines and coordinate truth among your homebase, cloud and chef server. It comes with [ironfan-homebase](https://github.com/infochimps-labs/ironfan-homebase).
 * [ironfan-pantry](https://github.com/infochimps-labs/ironfan-pantry): Our collection of industrial-strength, cloud-ready recipes for Hadoop, HBase, Cassandra, Elasticsearch, Zabbix and more. 
 * [silverware cookbook](https://github.com/infochimps-labs/ironfan-pantry/tree/master/cookbooks/silverware): Helps you coordinate discovery of services ("list all the machines for `awesome_webapp`, that I might load balance them") and aspects ("list all components that write logs, that I might logrotate them, or that I might monitor the free space on their volumes"). Found within the [ironfan-pantry](https://github.com/infochimps-labs/ironfan-pantry).
@@ -76,7 +78,7 @@ See below for
 
 ### Unified repos for some, miniature american flags for others ###
 
-Individual cookbook repos make our sysadmins happy: fine-grained version control lets us selectively gate changes into production. As importantly, ironfan community members can easily adopt only selected cookbooks, and we can easily evaluate and accept pull requests.
+Individual cookbook repos make our sysadmins happy: fine-grained version control lets us selectively gate changes into production. As importantly, Ironfan community members can easily adopt only selected cookbooks, and we can easily evaluate and accept pull requests.
 
 A unified, combined repo makes our developers happy: they have a familiar home to work from, a git repo like every other git repo. After making a common change across multiple cookbooks, they issue a single commit -- one message, one atomic changeset, one diff. There's only one main body of code to push or pull, so there's no danger our working sets diverge or of forgetting to push.
 
