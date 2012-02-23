@@ -1,7 +1,7 @@
 # Ironfan-Repoman: Repossess Your Cookbook Versions
 
 Ironfan, the foundation of The Infochimps Platform, is an expressive toolset for constructing scalable, resilient architectures. It works in the cloud, in the data center, and on your laptop, and it makes your system diagram visible and inevitable. Inevitable systems coordinate automatically to interconnect, removing the hassle of manual configuration of connection points (and the associated danger of human error).
-For more information about Ironfan and The Infochimps Platform, visit the [Infochimps Blog introducing the Infochimps Platform](http://blog.infochimps.com/2012/02/23/infochimps-platform/).
+For more information about Ironfan and The Infochimps Platform, visit the [Infochimps Blog introducing the Infochimps Platform](http://blog.infochimps.com/2012/02/22/infochimps-platform/).
 
 This repo lets you maintain single-cookbook repos from a repo that has all your cookbooks.
 
