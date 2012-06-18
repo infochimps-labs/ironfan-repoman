@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
-gem 'chef',          "= 0.10.8"
-gem 'ironfan',  "~> 3.0.12"
+gem 'chef',          "= 0.10.10"
+gem 'ironfan',       "~> 3.1.5"
 
 group :development do
   gem 'rake'
@@ -13,7 +13,7 @@ group :development do
 
   gem 'guard'
   gem 'guard-process'
-  gem 'guard-chef'
+  gem 'guard-chef',    :git => 'git@github.com:infochimps-forks/guard-chef.git'
 end
 
 group :support do
